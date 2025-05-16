@@ -37,6 +37,13 @@ export class HeaderComponent implements OnInit {
     this.scrollY = window.scrollY;
   }
 
+  @HostListener('window:resize', [])
+  onWindowResize() {
+    if (window.innerWidth > 1280) {
+      this.sidebarOpen = false;
+    }
+  }
+
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }

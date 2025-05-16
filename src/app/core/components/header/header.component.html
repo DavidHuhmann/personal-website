@@ -1,6 +1,9 @@
 <nav data-testid="navbar" class="fixed z-50 w-full transition-colors">
   <div
-    class="m-4 flex items-center justify-between rounded-2xl border-1 border-[#e5e5e5] bg-[rgba(255,255,255,.15)] px-5 py-2 shadow-lg backdrop-blur-md dark:border-0 dark:bg-[rgba(18,18,18,.35)]">
+    class="m-4 flex items-center justify-between rounded-2xl border-1 border-[#e5e5e5] bg-[rgba(255,255,255,.15)] px-5 py-2 shadow-lg backdrop-blur-md dark:border-0 dark:bg-[rgba(18,18,18,.35)]"
+    [ngClass]="{
+      'm-0!': sidebarOpen,
+    }">
     <a routerLink="" data-testid="header-logo">
       <span class="sr-only">DqvidTM</span>
       <img
@@ -39,12 +42,12 @@
     <aside
       (click)="$event.stopPropagation()"
       [ngClass]="{
-        'translate-x-full xl:translate-x-0': !sidebarOpen,
+        'translate-x-[100vw] xl:translate-x-0': !sidebarOpen,
         'translate-x-0 text-white': sidebarOpen,
       }"
       aria-label="Sidebar"
       data-testid="header-sidebar-aside-mobile"
-      class="fixed end-0 top-0 z-40 h-full w-full max-w-64 transform-gpu justify-items-end bg-gray-800 text-white! backdrop-blur-none! transition-transform xl:static xl:max-w-full xl:transform-none xl:bg-transparent">
+      class="fixed end-0 top-0 z-40 h-screen w-full max-w-64 transform-gpu justify-items-end bg-gray-800 text-white! backdrop-blur-none! transition-transform xl:static xl:h-full xl:max-w-full xl:transform-none xl:bg-transparent">
       <div class="flex w-full flex-col items-center justify-end gap-1 p-6 font-medium xl:flex-row xl:gap-6">
         <div class="flex w-full flex-row justify-between xl:hidden">
           <a routerLink="" data-testid="header-logo-mobile">

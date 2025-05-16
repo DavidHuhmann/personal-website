@@ -3,7 +3,7 @@
     "core": {
       "header": {
         "links": {
-          "home": "Home",
+          "home": "Startseite",
           "contact": "Kontakt"
         }
       },

@@ -34,10 +34,10 @@
                     alt="" />
                   <i
                     class="absolute end-[7px] bottom-[3px] h-2.5 w-2.5 animate-ping rounded-full opacity-75"
-                    [style]="'background: ' + getColor(discordStatus!)"></i>
+                    [style.background]="getColor(discordStatus!)"></i>
                   <span
                     class="absolute end-[8px] bottom-[4px] h-2 w-2 rounded-full"
-                    [style]="'background: ' + getColor(discordStatus!)"></span>
+                    [style.background]="getColor(discordStatus!)"></span>
                 </div>
                 <span>{{ discordUser.username }}</span>
               </div>
