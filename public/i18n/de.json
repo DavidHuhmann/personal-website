@@ -1,0 +1,47 @@
+{
+  "app": {
+    "core": {
+      "header": {
+        "links": {
+          "home": "Home",
+          "contact": "Kontakt"
+        }
+      },
+      "footer": {
+        "links": {
+          "privacyPolicy": "Datenschutzerklärung",
+          "imprint": "Impressum"
+        }
+      },
+      "404": {
+        "heading": "404",
+        "subheading": "Keine Ergebnisse gefunden",
+        "description": "Die angefragte Seite konnte nicht gefunden werden.",
+        "ctaButton": "Zur Startseite"
+      },
+      "homepage": {
+        "greeting": "Servus mitanand, Dav hier!",
+        "spotify": {
+          "by": "von"
+        }
+      }
+    },
+    "utilites": {
+      "loadingSpinner": "Wird geladen..."
+    },
+    "routes": {
+      "default": {
+        "title": "DqvidTM",
+        "description": "Seite | DqvidTM"
+      },
+      "home": {
+        "title": "DqvidTM",
+        "description": "Ich bin David, Willkommen auf meinem Portfolio!"
+      },
+      "404": {
+        "title": "Seite nicht gefunden | DqvidTM",
+        "description": "Oops! Diese Seite konnte nicht gefunden werden. Aber keine Sorge – wir helfen dir, wieder auf den richtigen Weg zu kommen. Schau dir unsere Startseite an oder entdecke spannende Inhalte!"
+      }
+    }
+  }
+}

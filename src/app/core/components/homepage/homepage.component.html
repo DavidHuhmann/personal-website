@@ -1,0 +1,61 @@
+<om-particles
+  [circleColor]="theme === 'light_mode' ? '#000000' : '#ffffff'"
+  [size]="2"
+  [staticity]="30"
+  [particleSpeed]="0.2"
+  [vx]="1"
+  [vy]="-1">
+  <div
+    class="relative min-h-screen overflow-hidden bg-gradient-to-r transition-colors dark:from-[rgb(11,11,12)] dark:to-[rgb(18,18,18)]">
+    <div id="background">
+      <div id="bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div id="bg-1" class="bg-width blur-[200px] sm:blur-[150px]" [style.background]="getColor(discordStatus!)"></div>
+      <div id="bg-2" class="bg-width blur-[200px] sm:blur-[150px]" [style.background]="getColor(discordStatus!)"></div>
+    </div>
+
+    <div id="content">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-3 sm:flex-row">
+          @if (discordUser) {
+            <a class="action-button" [href]="'https://discord.com/users/' + discordUser.id" target="_blank"
+              ><ng-icon class="text-lg sm:text-xl" name="svglDiscord" /> <span>-</span>
+              <div class="flex flex-row gap-1">
+                <div class="relative">
+                  <img
+                    class="me-2 inline-flex rounded-full dark:shadow"
+                    [src]="'https://cdn.discordapp.com/avatars/' + discordUser.id + '/' + discordUser.avatar + '.webp'"
+                    width="30"
+                    height="30"
+                    alt="" />
+                  <i
+                    class="absolute end-[7px] bottom-[3px] h-2.5 w-2.5 animate-ping rounded-full opacity-75"
+                    [style]="'background: ' + getColor(discordStatus!)"></i>
+                  <span
+                    class="absolute end-[8px] bottom-[4px] h-2 w-2 rounded-full"
+                    [style]="'background: ' + getColor(discordStatus!)"></span>
+                </div>
+                <span>{{ discordUser.username }}</span>
+              </div>
+            </a>
+          }
+
+          @if (spotifyData) {
+            <a class="action-button" [href]="'https://open.spotify.com/track/' + spotifyData.track_id" target="_blank">
+              <ng-icon class="text-lg sm:text-xl" name="svglSpotify" />
+              <span class="break-normal"
+                ><b>{{ spotifyData.song }}</b> {{ 'app.core.homepage.spotify.by' | translate }}
+                {{ spotifyData.artist }}
+              </span>
+            </a>
+          }
+        </div>
+        <h2 id="greet">{{ 'app.core.homepage.greeting' | translate }}👋</h2>
+      </div>
+    </div>
+  </div>
+</om-particles>

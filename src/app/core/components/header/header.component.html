@@ -1,0 +1,90 @@
+<nav data-testid="navbar" class="fixed z-50 w-full transition-colors">
+  <div
+    class="m-4 flex items-center justify-between rounded-2xl border-1 border-[#e5e5e5] bg-[rgba(255,255,255,.15)] px-5 py-2 shadow-lg backdrop-blur-md dark:border-0 dark:bg-[rgba(18,18,18,.35)]">
+    <a routerLink="" data-testid="header-logo">
+      <span class="sr-only">DqvidTM</span>
+      <img
+        alt="Dqvid Logo"
+        class="w-20 drop-shadow-lg"
+        height="628"
+        data-testid="header-image"
+        ngSrc="assets/logo.webp"
+        priority
+        width="601" />
+    </a>
+    <button
+      (click)="toggleSidebar()"
+      (keyup.enter)="toggleSidebar()"
+      tabindex="0"
+      class="inline-flex items-center justify-center rounded-lg p-2 text-sm text-black focus:ring-2 focus:ring-gray-200 focus:outline-hidden xl:hidden"
+      type="button"
+      data-testid="header-sidebar-toggle-button">
+      <span class="sr-only">Toggle sidebar</span>
+      <svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1 1h15M1 7h15M1 13h15"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2" />
+      </svg>
+    </button>
+    <div
+      (click)="closeSidebar()"
+      (keyup.enter)="closeSidebar()"
+      *ngIf="sidebarOpen"
+      tabindex="0"
+      data-testid="header-sidebar-mobile"
+      class="fixed inset-0 z-30 bg-black/50 xl:hidden"></div>
+    <aside
+      (click)="$event.stopPropagation()"
+      [ngClass]="{
+        'translate-x-full xl:translate-x-0': !sidebarOpen,
+        'translate-x-0 text-white': sidebarOpen,
+      }"
+      aria-label="Sidebar"
+      data-testid="header-sidebar-aside-mobile"
+      class="fixed end-0 top-0 z-40 h-full w-full max-w-64 transform-gpu justify-items-end bg-gray-800 text-white! backdrop-blur-none! transition-transform xl:static xl:max-w-full xl:transform-none xl:bg-transparent">
+      <div class="flex w-full flex-col items-center justify-end gap-1 p-6 font-medium xl:flex-row xl:gap-6">
+        <div class="flex w-full flex-row justify-between xl:hidden">
+          <a routerLink="" data-testid="header-logo-mobile">
+            <img
+              alt="Dqvid Logo"
+              class="w-16"
+              height="628"
+              ngSrc="assets/logo.webp"
+              data-testid="header-logo-image-mobile"
+              priority
+              width="601" />
+          </a>
+          <button
+            (click)="closeSidebar()"
+            class="ms-auto inline-flex w-full max-w-10 items-center justify-center rounded-lg py-7 text-sm"
+            type="button"
+            data-testid="header-sidebar-close-button">
+            <svg aria-hidden="true" class="h-3 w-3" fill="none" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2" />
+            </svg>
+            <span class="sr-only">Close sidebar</span>
+          </button>
+        </div>
+
+        <a routerLink="/" data-testid="header-home-link">{{ 'app.core.header.links.home' | translate }}</a>
+        <dqvid-language-switcher></dqvid-language-switcher>
+        <button (click)="toggleTheme()" aria-label="Toggle Theme Button" data-testid="toggle-theme-button">
+          <ng-icon
+            name="bootstrapMoon"
+            [name]="currentTheme === ThemeMode.Light ? 'heroMoon' : 'heroLightBulb'"
+            [attr.data-testid]="
+              currentTheme === ThemeMode.Light ? 'toggle-theme-icon-moon' : 'toggle-theme-icon-lightbulb'
+            "></ng-icon>
+        </button>
+      </div>
+    </aside>
+  </div>
+</nav>

@@ -1,0 +1,5 @@
+@reference "../../../../styles.css";
+
+a {
+  @apply py-4 transition-colors duration-300 hover:underline xl:py-0;
+}

@@ -1,0 +1,22 @@
+<div class="relative">
+  <div class="flex h-full w-full transform flex-col justify-center">
+    <div class="mx-auto max-w-(--breakpoint-xl) px-4 py-8 lg:px-6 lg:py-16">
+      <div class="mx-auto max-w-(--breakpoint-sm) text-center">
+        <h1
+          class="text-primary mb-4 text-7xl font-extrabold tracking-tight lg:text-9xl"
+          data-testid="error-404-heading">
+          {{ 'app.core.404.heading' | translate }}
+        </h1>
+        <p class="mb-4 text-3xl font-bold tracking-tight md:text-4xl" data-testid="error-404-subheading">
+          {{ 'app.core.404.subheading' | translate }}
+        </p>
+        <p class="mb-4 text-lg font-light text-gray-400" data-testid="error-404-text">
+          {{ 'app.core.404.description' | translate }}
+        </p>
+        <a class="p-button bg-primary mx-auto font-bold" routerLink="" data-testid="error-404-cta-button">
+          <p-button [label]="'app.core.404.ctaButton' | translate" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <button type="button" class="cursor-pointer border-0 bg-none p-0" (click)="showDropdown = !showDropdown">
+    <img [src]="getLanguageImage(selectedLanguage)" [alt]="selectedLanguage + ' flag'" width="24" height="16" />
+  </button>
+  @if (showDropdown) {
+    <ul class="language-dropdown">
+      @for (language of languages; track language.code) {
+        <li
+          (click)="setLanguage(language.code); showDropdown = false"
+          (keyup.enter)="setLanguage(language.code); showDropdown = false"
+          tabindex="0"
+          class="flex cursor-pointer items-center p-2">
+          <img class="mr-2" [src]="language.image" [alt]="language.code + ' flag'" width="24" height="16" />
+          <span class="text-black!">{{ getLanguageCode(language.code) }}</span>
+        </li>
+      }
+    </ul>
+  }
+</div>
