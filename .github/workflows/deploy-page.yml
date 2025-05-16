@@ -5,6 +5,9 @@ on:
     branches:
       - production
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,10 +21,10 @@ jobs:
           node-version: '22'
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: 🔨 Build
-        run: ng build
+        run: npm run build
 
       - name: 🚀 Deploy to deploy-page branch
         env:
