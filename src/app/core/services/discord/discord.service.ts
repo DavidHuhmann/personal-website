@@ -16,7 +16,6 @@ export class DiscordService implements OnDestroy {
 
   constructor() {
     this.webSocket = this.createWebSocket();
-    this.webSocket.subscribe(message => console.log('WebSocket Message:', message));
     this.start();
   }
 
