@@ -108,6 +108,7 @@
           <om-shiny-text
             [shimmerColor]="getColor(discordStatus!)"
             textColor="rgba(255,255,255,0.65)"
+            [textColor]="theme === 'light_mode' ? 'rgba(0,0,0,0.65)' : 'rgba(255,255,255,0.65)'"
             shimmerWidth="250px"
             [text]="'app.core.homepage.greeting' | translate"></om-shiny-text
           ><span class="animate-wave">👋</span>
