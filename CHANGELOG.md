@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/DavidHuhmann/personal-website/compare/v1.1.0...v1.1.1) (2025-05-17)
+
+
+### Bug Fixes
+
+* dont include empty assets ([986f4bd](https://github.com/DavidHuhmann/personal-website/commit/986f4bd3d100c87688aa4ebac2dd18c46039b5c0))
+
 # [1.1.0](https://github.com/DavidHuhmann/personal-website/compare/v1.0.0...v1.1.0) (2025-05-17)
 
 
