@@ -12,10 +12,13 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgxParticlesComponent } from '@omnedia/ngx-particles';
 import { ThemeService } from '../../services/theme/theme.service';
 import { ThemeMode } from '../../services/theme/entities/theme-mode';
+import { DiscordActivityType } from '../../services/discord/entities/discord-activity-type';
+
+import { NgxShinyTextComponent } from '@omnedia/ngx-shiny-text';
 
 @Component({
   selector: 'dqvid-homepage',
-  imports: [NgIcon, TranslatePipe, NgxParticlesComponent],
+  imports: [NgIcon, TranslatePipe, NgxParticlesComponent, NgxShinyTextComponent],
   viewProviders: [provideIcons({ svglSpotify, svglDiscord })],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
@@ -28,6 +31,7 @@ export class HomepageComponent implements OnInit {
   discordStatus?: string;
   spotifyData?: SpotifyData;
   activities?: DiscordActivity[];
+  discordActivityType = DiscordActivityType;
 
   ngOnInit(): void {
     this.themeService.theme$.subscribe(theme => {
@@ -35,6 +39,11 @@ export class HomepageComponent implements OnInit {
     });
     this.discordService.getUserData().subscribe(data => {
       if (!data?.discord_user) return;
+      if (data.activities) {
+        data.activities = data.activities.filter(activity => activity.name !== 'Spotify');
+      }
+
+      console.log(data);
       this.discordUser = data.discord_user;
       this.discordStatus = data.discord_status;
       this.spotifyData = data.spotify;
@@ -44,5 +53,13 @@ export class HomepageComponent implements OnInit {
 
   getColor(status: string) {
     return DiscordColors[status as keyof typeof DiscordColors] || DiscordColors['offline'];
+  }
+
+  isMpUrl(url: string) {
+    return url.startsWith('mp:');
+  }
+
+  convertUrl(url: string) {
+    return this.discordService.convertMpUrlToImgUrl(url);
   }
 }

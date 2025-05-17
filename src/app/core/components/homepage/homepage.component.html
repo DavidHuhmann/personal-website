@@ -53,8 +53,65 @@
               </span>
             </a>
           }
+
+          @for (activity of activities; track activity) {
+            @if (activity.assets) {
+              <button class="action-button">
+                <div class="flex flex-row gap-1">
+                  @if (activity.assets.large_image) {
+                    <div class="relative">
+                      <img
+                        class="me-2 inline-flex rounded-full dark:shadow"
+                        [src]="
+                          isMpUrl(activity.assets.large_image!)
+                            ? convertUrl(activity.assets.large_image!)
+                            : 'https://cdn.discordapp.com/app-assets/' +
+                              activity.application_id +
+                              '/' +
+                              activity.assets.large_image +
+                              '.png'
+                        "
+                        width="30"
+                        height="30"
+                        [alt]="activity.name + ' Small Logo'" />
+                      @if (activity.assets.small_image) {
+                        <span class="absolute end-[6px] bottom-[6px] h-[40%] w-[40%] rounded-full">
+                          <img
+                            class="me-2 inline-flex rounded-full dark:shadow"
+                            [src]="
+                              isMpUrl(activity.assets.small_image!)
+                                ? convertUrl(activity.assets.small_image!)
+                                : 'https://cdn.discordapp.com/app-assets/' +
+                                  activity.application_id +
+                                  '/' +
+                                  activity.assets.small_image +
+                                  '.png'
+                            "
+                            width="30"
+                            height="30"
+                            [alt]="activity.name + ' Large Logo'" />
+                        </span>
+                      }
+                    </div>
+                    <span class="flex items-center"
+                      ><b>{{ discordActivityType[activity.type || 0] }}</b
+                      >&nbsp;{{ activity.name }}</span
+                    >
+                  }
+                </div>
+              </button>
+            }
+          }
         </div>
-        <h2 id="greet">{{ 'app.core.homepage.greeting' | translate }}👋</h2>
+
+        <h2 id="greet">
+          <om-shiny-text
+            [shimmerColor]="getColor(discordStatus!)"
+            textColor="rgba(255,255,255,0.65)"
+            shimmerWidth="250px"
+            [text]="'app.core.homepage.greeting' | translate"></om-shiny-text
+          ><span class="animate-wave">👋</span>
+        </h2>
       </div>
     </div>
   </div>
