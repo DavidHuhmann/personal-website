@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/DavidHuhmann/personal-website/compare/v1.0.0...v1.1.0) (2025-05-17)
+
+
+### Features
+
+* add activity display with assets ([588dbc5](https://github.com/DavidHuhmann/personal-website/commit/588dbc5060b9891adc474d581766b57495250e8a))
+* add wave animation ([d436ade](https://github.com/DavidHuhmann/personal-website/commit/d436ade611137dcd72ca2d6822a1c90022a2cb41))
+
 # 1.0.0 (2025-05-16)
 
 
