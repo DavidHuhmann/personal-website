@@ -55,7 +55,7 @@
           }
 
           @for (activity of activities; track activity) {
-            @if (activity.assets) {
+            @if (activity.assets && (activity.assets.large_image || activity.assets.small_image)) {
               <button class="action-button">
                 <div class="flex flex-row gap-1">
                   @if (activity.assets.large_image) {

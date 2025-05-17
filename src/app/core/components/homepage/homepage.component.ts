@@ -43,7 +43,6 @@ export class HomepageComponent implements OnInit {
         data.activities = data.activities.filter(activity => activity.name !== 'Spotify');
       }
 
-      console.log(data);
       this.discordUser = data.discord_user;
       this.discordStatus = data.discord_status;
       this.spotifyData = data.spotify;
