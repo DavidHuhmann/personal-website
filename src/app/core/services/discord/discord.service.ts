@@ -65,6 +65,15 @@ export class DiscordService implements OnDestroy {
     return this.dataSubject$.asObservable();
   }
 
+  convertMpUrlToImgUrl(mpUrl: string): string | null {
+    const match = mpUrl.match(/\/https?\/(.+)$/);
+    if (!match) return null;
+
+    const url = 'https://' + match[1];
+
+    return decodeURIComponent(url);
+  }
+
   sendMessage(message: any): void {
     this.webSocket.next(message);
   }
