@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/DavidHuhmann/personal-website/compare/v1.1.1...v1.1.2) (2025-05-18)
+
+
+### Bug Fixes
+
+* **husky:** dont start on merge ([bd72688](https://github.com/DavidHuhmann/personal-website/commit/bd7268848c7ef95511f20b97cf1ffa9f0af835ab))
+* **shiny-text:** adjust color to theme switch ([b6e1461](https://github.com/DavidHuhmann/personal-website/commit/b6e1461128d2061f12290f0e0ea2962225b58009))
+
 ## [1.1.1](https://github.com/DavidHuhmann/personal-website/compare/v1.1.0...v1.1.1) (2025-05-17)
 
 
